@@ -2,7 +2,9 @@ from flask import Flask, session, redirect, url_for, escape, request
 
 app = Flask(__name__)
 
-# Set the secret key to some random bytes. Keep this really secret!
+# use session , methods(GET and POST)
+# Edite from https://flask.palletsprojects.com/en/1.0.x/quickstart/#what-to-do-if-the-server-does-not-start
+
 app.secret_key = 'stankishere'
 
 @app.route('/')
