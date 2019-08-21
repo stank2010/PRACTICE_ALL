@@ -40,9 +40,17 @@
   function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
     console.log('statusChangeCallback');
     console.log(response);                   // The current login status of the person.
-    if (response.status === 'connected') {   // Logged into your webpage and Facebook.
-      testAPI();  
-    } else {                                 // Not logged into your webpage or we are unable to tell.
+    if (response.status === 'connected') // Logged into your webpage and Facebook. 
+    { 
+    	document.getElementById("pumkod").innerHTML = '<button onclick="FB.logout();location.reload();"> Logout Krub </button>';
+    	//Logout ออกจาก Facebook ไปหมดเลย ไม่ใช่แค่ออกจากแอพ
+
+    	//document.getElementById('status').innerHTML = "hello" + response.id;
+      	testAPI();  
+    } 
+    else 
+    {                                 // Not logged into your webpage or we are unable to tell.
+
       document.getElementById('status').innerHTML = 'Please log ' +
         'into this webpage.';
     }
@@ -85,7 +93,7 @@
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!' + response.id;
+        'Hello ' + response.name + '!\nYour id is ' + response.id;
     });
   }
 
@@ -94,8 +102,10 @@
 
 //  The JS SDK Login Button 
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
+<div id="pumkod">
+	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+	</fb:login-button>-->
+</div>
 
 <div id="status">
 </div>
