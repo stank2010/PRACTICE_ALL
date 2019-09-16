@@ -17,8 +17,9 @@
       <div class="col-sm"> </div>
       <div class="col-sm ">
           <div class="card align-middle" >
+          
           <p class="mx-auto"> ตั้งค่าเป้าหมาย </p>
-            <div class="mx-auto">
+            <div>
               <p class="form-group mx-auto">
                 <input v-model="name_goal" class="form-control form-control-sm" placeholder="ชื่อเป้าหมาย">
                 <input v-model="val_goal" class="form-control form-control-sm" placeholder="จำนวนเงินที่ต้องการออม(บาท)">
@@ -51,8 +52,8 @@
     var app = new Vue({
       el: '#app',
       data: {
-        name_goal:"",
-        val_goal: 0,
+        name_goal:null,
+        val_goal: null,
         list_goal :[
         { //mock data must set list_goal to be NULL
           name_goal:"รักเธอ",
@@ -64,6 +65,7 @@
         Set_goal(){
           //use this.val_goal
           //add to db
+          alert('test');
         },
         Show_List(){
           // add to list_goal
